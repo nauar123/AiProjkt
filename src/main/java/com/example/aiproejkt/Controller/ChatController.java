@@ -29,9 +29,11 @@ public class ChatController {
     // Hent specifik session
     @GetMapping("/session/{id}")
     public ResponseEntity<ChatSession> getSession(@PathVariable int id) {
-        return chatService.getSession(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        ChatSession session = chatService.getSession(id);
+        if (session == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(session);
     }
 
     // Hent alle sessions
