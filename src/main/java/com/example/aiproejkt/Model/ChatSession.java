@@ -8,7 +8,7 @@ public class ChatSession {
     private String name;
     private List<Message> messages;
 
-    public ChatSession(int id, String figureName) {
+    public ChatSession(int id, String Name) {
         this.id = id;
         this.name = name;
         this.messages = new ArrayList<>();
