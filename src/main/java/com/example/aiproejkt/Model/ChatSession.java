@@ -2,7 +2,7 @@ package com.example.aiproejkt.Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//kommentar
 public class ChatSession {
     private int id;
     private String name;
