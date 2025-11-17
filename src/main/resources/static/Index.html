@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 50px; text-align: center; }
+        button { padding: 12px 20px; font-size: 16px; cursor: pointer; }
+    </style>
 </head>
 <body>
+
+<h1>Velkommen til chatten</h1>
+<button onclick="startChat()">Start Chat</button>
+
+<script>
+    async function startChat() {
+        // Opret en ny session uden navn
+        const res = await fetch("http://localhost:8080/api/session?name=ChatSession", { method: "POST" });
+        const session = await res.json();
+
+        // Gå til chat-siden med sessionId
+        window.location.href = `chat.html?sessionId=${session.id}`;
+    }
+</script>
 
 </body>
 </html>
